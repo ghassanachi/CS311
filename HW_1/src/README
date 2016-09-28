@@ -1,0 +1,43 @@
+Will and G
+All group members were present and contributing during all work on this project
+We have neither given nor received any unauthorized information on this assignment
+
+The files to run the program:
+	- Node.java //Object for a state node
+	- EightsPlayer.java //Object for machine that solves 8-puzzle
+
+Bugs:
+	There are no bugs. We did change the multiple board output slightly though, as our averages were not 
+	initially being calculated properly.
+	Also we only saw 5 cases in the assignment sheet.
+
++-------------------+-----------------+---------------------------+----------------+----------------------+
+|       Case        | Number of moves |                      Number of nodes Generated                    |
++-------------------+-----------------+---------------------------+----------------+----------------------+
+|                   |                 | BFS                       | A* (Manhattan) | A* (Linear Conflict) |
++-------------------+-----------------+---------------------------+----------------+----------------------+
+| 1                 | 2               | 7                         | 3              | 3                    |
+| 2                 | 3               | 14                        | 4              | 4                    |
+| 3                 | 5               | 48                        | 6              | 6                    |
+| 4                 | 8               | 166                       | 9              | 9                    |
+| 5                 | 10              | 669                       | 13             | 12                   |
+| Average for 200   | N/A             | 1102                      | -              | -                    |
+| Average for 20000 | N/A             | -                         | 22             | 19                   |
++-------------------+-----------------+---------------------------+----------------+----------------------+
+
+A* heuristic:
+	Our A* heuristic adds on to the Manhattan distance by also taking into account linear conflicts. A linear
+	conflict occurs when node A and node B are in the same row, the goal tiles of A and B are also in that row,
+	A is to the right of B, and the goal tile of A is to the left of the goal tile of B. A linear conflict also
+	occurs when node C and node D are in the same column, the goal tiles of C and D are also in that column, C is
+	below D, and the goal tile of C is above the goal tile of D. When a conflict is found, it should add two moves
+	to the Manhattan distance because it should take at least 2 more moves that the manhattan distance to resolve 
+	the conflict.
+	
+	To implement our heuristic, we went through each element of the array and checked if it had a conflict with the elements
+	in its row/column. To find a conflict, we looked first at the elements to the right of the current element, storing 
+	the values in an array if they belong in that row. Then we evaluate if that array has any conflicts. The same is done for
+	the column of the current element, except we look at the elements below the current.
+
+
+
