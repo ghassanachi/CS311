@@ -22,7 +22,7 @@ public class EightsPlayer {
 
 	static Scanner scan = new Scanner(System.in);
 	static int size=3; //size=3 for 8-Puzzle
-	static int numiterations = 10000;
+	static int numiterations = 100;
 	static int curnumnodes; //number of nodes for the specific run
 	static int curnummoves; //number of moves for specific run
 	static int numnodes; //number of nodes generated
